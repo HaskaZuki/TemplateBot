@@ -57,4 +57,4 @@ If you encounter any issues or want to reach out directly, feel free to join our
 [![Discord Support](https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/9RWJqdCg)
 [![Discord](https://img.shields.io/badge/Discord-Contact%20Me-white?style=for-the-badge&logo=discord&logoColor=5865F2)](https://discord.com/users/710245394533318676)
 
-> **Discord Username:** `your_username_here`
+> **Discord Username:** `zuki96_`
