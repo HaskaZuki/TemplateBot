@@ -1,41 +1,59 @@
 # TemplateBot
 
-A clean starter template for Discord.js v14 bots. Includes handler for slash commands and events.
+This is a clean, modern starting point for your next Discord bot. I built this to be as lightweight as possible while still giving you the structure you need to scale up—like a solid command handler and event system—without the bloat.
 
-## Setup
+It’s completely open source, so feel free to use it for anything you want.
 
-1. **Install dependencies**
-   ```bash
-   npm install
-   ```
+## 📦 What's Inside?
 
-2. **Configuration**
-   Copy `.env.example` to `.env` and fill in your values:
-   ```txt
-   DISCORD_TOKEN=your_token
-   CLIENT_ID=your_id
-   ```
+We keep it simple. Here are the core packages driving this bot:
 
-3. **Deploy Commands**
-   Run this once to register slash commands (or whenever you add new ones):
-   ```bash
-   npm run deploy
-   ```
+*   **[discord.js](https://discord.js.org/)** (v14): The main library for interacting with the Discord API.
+*   **[dotenv](https://www.npmjs.com/package/dotenv)**: Keeps your secrets (like tokens) safe and out of your code.
+*   **[nodemon](https://www.npmjs.com/package/nodemon)** (Dev): Automatically restarts your bot whenever you save a file, so you don't have to do it manually.
 
-4. **Start**
-   ```bash
-   npm start
-   # or for dev
-   npm run dev
-   ```
+## ⚡ How to Get Started
 
-## Development
+Getting this up and running takes about 2 minutes.
 
-- **Commands**: Add new files to `commands/folder_name/`.
-- **Events**: Add new files to `events/`. 
+### 1. Grab the Code
+Clone this repo to your machine:
+```bash
+git clone https://github.com/HaskaZuki/TemplateBot.git
+cd TemplateBot
+```
 
-The bot automatically loads files from these directories on startup.
+### 2. Install Dependencies
+Run this command to install the packages listed above:
+```bash
+npm install
+```
 
-## License
+### 3. Set Your Secrets
+You'll see a file called `.env.example`. Rename it to just `.env` and paste your bot token and client ID inside.
+```ini
+DISCORD_TOKEN=your_token_goes_here
+CLIENT_ID=your_client_id_goes_here
+```
+> **Note:** Never share your `.env` file with anyone!
 
-MIT
+### 4. Register Commands
+Before you start, you need to tell Discord about your slash commands. We have a script for that:
+```bash
+npm run deploy
+```
+
+### 5. Launch 🚀
+You're ready to go.
+```bash
+npm start
+```
+*Working on new features? Use `npm run dev` to watch for changes automatically.*
+
+## 📂 Where things live
+*   **`commands/`**: Drop your new command files here. We use subfolders (like `utility`) to keep things organized.
+*   **`events/`**: Listen for things like `ready` or `interactionCreate` here.
+*   **`index.js`**: The entry point. It handles the dynamic loading magic.
+
+---
+MIT License
