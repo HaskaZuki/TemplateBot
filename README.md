@@ -1,83 +1,133 @@
-# TemplateBot
+<div align="center">
 
-A simple, clean, and extensible Discord.js bot template to help you get started with bot development quickly.
+# 🤖 Discord Bot Template
 
-## Features
+[![Discord.js](https://img.shields.io/badge/discord.js-v14-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.js.org/)
+[![Node.js](https://img.shields.io/badge/node.js-v16.9+-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 
-- **Slash Commands**: Modern command handling using Discord's interaction system.
-- **Event Handling**: Modular event system to keep your code organized.
-- **Easy Configuration**: Uses `.env` for secure token and ID storage.
-- **Dynamic Loading**: Automatically loads new commands and events without needing to edit the main file.
-- **MIT API**: Free to use and modify.
+A robust, modular, and extensible **Discord.js** bot boilerplate designed to jumpstart your development. Built with modern JavaScript standards, slash commands, and a scalable project structure.
 
-## Prerequisites
+[Getting Started](#-getting-started) • [Features](#-features) • [Project Structure](#-project-structure) • [License](#-license)
 
-- [Node.js](https://nodejs.org/) (v16.9.0 or higher)
+</div>
 
-## Setup Guide
+---
 
-### 1. Clone or Download
-Clone this repository or download the ZIP file and extract it to a folder.
+## ✨ Features
 
-### 2. Install Dependencies
-Open a terminal in the project folder and run:
-\```bash
-npm install
-\```
+- **🚀 Modern Architecture**: Built on Discord.js v14 with full support for Slash Commands (*Interactions*).
+- **📂 Modular Design**: Separate handlers for Commands and Events to keep your codebase clean and maintainable.
+- **⚡ Dynamic Loading**: Automatically registers new commands and events on startup—no manual imports required.
+- **🔒 Secure**: Environment variable management using `dotenv` to keep your tokens safe.
+- **🛠️ Developer Ready**: Includes scripts for development (hot-reload) and deployment.
 
-### 3. Configure Environment Variables
-1. Rename `.env.example` to `.env`.
-2. Open `.env` and fill in your details:
-   - `DISCORD_TOKEN`: Your bot's token from the [Discord Developer Portal](https://discord.com/developers/applications).
-   - `CLIENT_ID`: Your bot's Application ID (User ID).
+## 🚀 Getting Started
 
-### 4. Deploy Commands
-Before running the bot, you need to register the slash commands with Discord. Run:
-\```bash
-npm run deploy
-\```
-You should see a message saying "Successfully reloaded application (/) commands."
+Follow these steps to get your bot up and running in minutes.
 
-### 5. Run the Bot
-Start the bot using:
-\```bash
-npm start
-\```
-or for development (auto-restarts on save):
-\```bash
-npm run dev
-\```
+### Prerequisites
 
-## Adding New Commands
+- **[Node.js](https://nodejs.org/)** (v16.9.0 or newer)
+- **[npm](https://www.npmjs.com/)** (comes with Node.js)
+- A **[Discord Account](https://discord.com/)** and a created Application in the [Developer Portal](https://discord.com/developers/applications).
 
-1. Go to the `commands` folder.
-2. You can create new subfolders (categories) or use the existing `utility`.
-3. Create a new `.js` file (e.g., `hello.js`).
-4. Paste the following template:
+### Installation
 
-\```javascript
-const { SlashCommandBuilder } = require('discord.js');
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/your-username/TemplateBot.git
+    cd TemplateBot
+    ```
 
-module.exports = {
-	data: new SlashCommandBuilder()
-		.setName('hello')
-		.setDescription('Says hello!'),
-	async execute(interaction) {
-		await interaction.reply('Hello there!');
-	},
-};
-\```
-5. Run `npm run deploy` to update the commands on Discord.
-6. Restart the bot (if not using `npm run dev`).
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    ```
 
-## Project Structure
+3.  **Configuration**
+    - Rename the `.env.example` file to `.env`.
+    - Open `.env` and configure your credentials:
+      ```ini
+      DISCORD_TOKEN=your_bot_token_here
+      CLIENT_ID=your_application_id_here
+      ```
 
-- `index.js`: The main entry point of the bot.
-- `deploy-commands.js`: Script to register commands.
-- `commands/`: Folder for all your slash commands.
-- `events/`: Folder for event handlers (like `ready`, `interactionCreate`).
-- `.env`: Stores secret keys (DO NOT SHARE THIS FILE).
+4.  **Register Commands**
+    Publish your slash commands to Discord:
+    ```bash
+    npm run deploy
+    ```
 
-## License
+5.  **Start the Bot**
+    ```bash
+    # Production mode
+    npm start
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+    # Development mode (auto-restarts on file changes)
+    npm run dev
+    ```
+
+---
+
+## 🛠️ Development
+
+### Adding a New Command
+
+1.  Navigate to `commands/utility/` (or create a new folder under `commands/`).
+2.  Create a new file, e.g., `hello.js`.
+3.  Use the following template:
+
+    ```javascript
+    const { SlashCommandBuilder } = require('discord.js');
+
+    module.exports = {
+        data: new SlashCommandBuilder()
+            .setName('hello')
+            .setDescription('Responds with a greeting!'),
+        async execute(interaction) {
+            await interaction.reply('Hello, world!');
+        },
+    };
+    ```
+4.  Run `npm run deploy` to register the new command.
+
+### Adding a New Event
+
+1.  Navigate to the `events/` folder.
+2.  Create a new file with the name of the event, e.g., `guildMemberAdd.js`.
+3.  Structure it as follows:
+
+    ```javascript
+    const { Events } = require('discord.js');
+
+    module.exports = {
+        name: Events.GuildMemberAdd,
+        execute(member) {
+            console.log(`New member joined: ${member.user.tag}`);
+        },
+    };
+    ```
+
+---
+
+## 📂 Project Structure
+
+```plaintext
+TemplateBot/
+├── commands/             # Slash command files organized by category
+│   └── utility/
+├── events/               # Event handler files
+├── node_modules/         # Dependencies
+├── .env                  # Environment variables (Ignored by Git)
+├── .env.example          # Example environment configuration
+├── .gitignore            # Git ignore rules
+├── deploy-commands.js    # Script to register slash commands
+├── index.js              # Main entry point
+├── package.json          # Project metadata and scripts
+└── README.md             # Project documentation
+```
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
