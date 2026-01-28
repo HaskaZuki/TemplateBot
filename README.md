@@ -1,11 +1,5 @@
 # TemplateBot
 
-This is a clean, modern starting point for your next Discord bot. I built this to be as lightweight as possible while still giving you the structure you need to scale up—like a solid command handler and event system—without the bloat.
-
-It’s completely open source, so feel free to use it for anything you want.
-
-## 📦 What's Inside?
-
 We keep it simple. Here are the core packages driving this bot:
 
 *   **[discord.js](https://discord.js.org/)** (v14): The main library for interacting with the Discord API.
@@ -56,4 +50,11 @@ npm start
 *   **`index.js`**: The entry point. It handles the dynamic loading magic.
 
 ---
-MIT License
+## 🛠 Support & Contact
+
+If you encounter any issues or want to reach out directly, feel free to join our community or add me on Discord.
+
+[![Discord Support](https://img.shields.io/badge/Discord-Support%20Server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/9RWJqdCg)
+[![Discord](https://img.shields.io/badge/Discord-Contact%20Me-white?style=for-the-badge&logo=discord&logoColor=5865F2)](https://discord.com/users/710245394533318676)
+
+> **Discord Username:** `your_username_here`
